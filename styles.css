@@ -2,10 +2,10 @@
    DESIGN TOKENS
    =========================== */
 :root {
-    --color-primary: #0F5132;
-    --color-primary-light: #198754;
-    --color-primary-lighter: #d1e7dd;
-    --color-primary-dark: #0a3622;
+    --color-primary: #1a56db;
+    --color-primary-light: #3b82f6;
+    --color-primary-lighter: #dbeafe;
+    --color-primary-dark: #1240a8;
     --color-accent: #ffc107;
     --color-text: #1a1a2e;
     --color-text-secondary: #555770;
@@ -165,15 +165,25 @@ h2 { font-weight: 700; }
 .logo {
     display: flex;
     align-items: center;
-    gap: 10px;
-    font-weight: 700;
-    font-size: 1.15rem;
+    text-decoration: none;
+}
+
+.logo-text {
+    font-size: 1.1rem;
+    line-height: 1.1;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
     color: var(--color-primary);
 }
 
-.logo-icon {
-    width: 32px;
-    height: 32px;
+.logo-bold {
+    display: block;
+    font-weight: 800;
+}
+
+.logo-thin {
+    display: block;
+    font-weight: 300;
 }
 
 .nav-links {
@@ -241,7 +251,7 @@ h2 { font-weight: 700; }
    =========================== */
 .hero {
     padding: 140px 0 80px;
-    background: linear-gradient(135deg, #f8faf9 0%, #eef6f1 50%, #f0f4f8 100%);
+    background: linear-gradient(135deg, #f8f9fc 0%, #eef2fb 50%, #f0f4f8 100%);
     overflow: hidden;
 }
 
@@ -350,7 +360,7 @@ h2 { font-weight: 700; }
 .phone-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, rgba(0,0,0,0) 40%, rgba(15,81,50,0.85) 100%);
+    background: linear-gradient(180deg, rgba(0,0,0,0) 40%, rgba(26,86,219,0.85) 100%);
     display: flex;
     align-items: flex-end;
     padding: 24px;
@@ -935,8 +945,11 @@ h2 { font-weight: 700; }
 }
 
 .footer-brand .logo {
-    color: #fff;
     margin-bottom: 12px;
+}
+
+.footer-brand .logo-text {
+    color: #ffffff;
 }
 
 .footer-brand p {
