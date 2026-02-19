@@ -23,7 +23,7 @@ export default async function handler(req, res) {
     }
 
     const htmlBody = `
-        <h2>New Inquiry from Explore &amp; Collect</h2>
+        <h2>New Inquiry from Discvr</h2>
         <table style="border-collapse:collapse;width:100%;max-width:600px;">
             <tr><td style="padding:8px 12px;font-weight:bold;border-bottom:1px solid #eee;">Name</td>
                 <td style="padding:8px 12px;border-bottom:1px solid #eee;">${firstName} ${lastName}</td></tr>
@@ -40,7 +40,7 @@ export default async function handler(req, res) {
 
     try {
         await resend.emails.send({
-            from: process.env.RESEND_FROM_EMAIL || 'Explore & Collect <onboarding@resend.dev>',
+            from: process.env.RESEND_FROM_EMAIL || 'Discvr <onboarding@resend.dev>',
             to: [process.env.INQUIRY_TO_EMAIL || 'delivered@resend.dev'],
             subject: `New Inquiry: ${organization} (${orgTypeLabels[orgType] || orgType})`,
             html: htmlBody,

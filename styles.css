@@ -168,9 +168,12 @@ h2 { font-weight: 700; }
     text-decoration: none;
 }
 
-.logo-img {
-    height: 48px;
-    width: auto;
+.logo-text {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    font-size: 2rem;
+    letter-spacing: -0.02em;
+    color: var(--color-text);
 }
 
 .nav-links {
@@ -935,7 +938,7 @@ h2 { font-weight: 700; }
     margin-bottom: 12px;
 }
 
-.footer-brand .logo-text {
+.footer .logo-text {
     color: #ffffff;
 }
 
