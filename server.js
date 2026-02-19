@@ -10,7 +10,7 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 
 app.use(cors());
 app.use(express.json());
-app.use(express.static('public'));
+app.use(express.static('.'));
 
 app.post('/api/inquiry', async (req, res) => {
     const { firstName, lastName, email, organization, orgType, message } = req.body;
