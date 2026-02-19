@@ -168,22 +168,9 @@ h2 { font-weight: 700; }
     text-decoration: none;
 }
 
-.logo-text {
-    font-size: 1.1rem;
-    line-height: 1.1;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--color-primary);
-}
-
-.logo-bold {
-    display: block;
-    font-weight: 800;
-}
-
-.logo-thin {
-    display: block;
-    font-weight: 300;
+.logo-img {
+    height: 48px;
+    width: auto;
 }
 
 .nav-links {
