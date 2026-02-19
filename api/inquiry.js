@@ -1,32 +1,26 @@
-import 'dotenv/config';
-import express from 'express';
-import cors from 'cors';
 import { Resend } from 'resend';
-
-const app = express();
-const PORT = process.env.PORT || 3001;
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-app.use(cors());
-app.use(express.json());
-app.use(express.static('public'));
+const orgTypeLabels = {
+    municipality: 'Municipality / City',
+    bia: 'Business Improvement Area (BIA)',
+    tourism: 'Tourism Board',
+    retail: 'Retail / Shopping Centre',
+    event: 'Event / Festival Organizer',
+    other: 'Other',
+};
 
-app.post('/api/inquiry', async (req, res) => {
+export default async function handler(req, res) {
+    if (req.method !== 'POST') {
+        return res.status(405).json({ error: 'Method not allowed' });
+    }
+
     const { firstName, lastName, email, organization, orgType, message } = req.body;
 
     if (!firstName || !lastName || !email || !organization || !orgType) {
         return res.status(400).json({ error: 'Missing required fields.' });
     }
-
-    const orgTypeLabels = {
-        municipality: 'Municipality / City',
-        bia: 'Business Improvement Area (BIA)',
-        tourism: 'Tourism Board',
-        retail: 'Retail / Shopping Centre',
-        event: 'Event / Festival Organizer',
-        other: 'Other',
-    };
 
     const htmlBody = `
         <h2>New Inquiry from Explore &amp; Collect</h2>
@@ -53,13 +47,9 @@ app.post('/api/inquiry', async (req, res) => {
             replyTo: email,
         });
 
-        return res.json({ success: true });
+        return res.status(200).json({ success: true });
     } catch (err) {
         console.error('Resend error:', err);
         return res.status(500).json({ error: 'Failed to send email. Please try again.' });
     }
-});
-
-app.listen(PORT, () => {
-    console.log(`Server running on http://localhost:${PORT}`);
-});
+}
